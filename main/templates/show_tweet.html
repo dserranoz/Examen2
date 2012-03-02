@@ -1,0 +1,31 @@
+<html>
+<html>
+<head>
+	<title> {{zombiess.name}}</title>
+		<style type="text/css">
+		body {
+			background-color: #778899;
+		}
+		.titulo{
+		font-family: "Tahoma";
+		font-size: 30px;
+		font-weight: bold;
+		color: black;
+		text-align: center;
+				
+		}
+		</style>
+</head>
+<body>
+	<div class="titulo">Tweet list</div>
+	<hr/>
+	    <div class="Tweet">
+	    	{% for tweet in zombiess.tweetss.all %}
+	    	<br>
+	    	<div>--> {{ tweet.status }} <br>Created_at: {{tweet.created_at}}</div>
+	    	{% endfor %}
+	    </div>
+	    <div><br/>
+	<a href="{% url home %}" >Home</a></div>
+</body>
+</html>

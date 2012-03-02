@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Zombie</title>
+	<style type="text/css">
+		body {
+			background-color: #778899;
+		}
+		.titulo{
+		font-family: "Tahoma";
+		font-size: 30px;
+		font-weight: bold;
+		color: black;
+		text-align: center;
+				
+		}
+
+		.zombie{
+		font-family: "Century Schoolbook L";
+		font-size: 15px;
+		font-weight: bold;
+		color: black;
+		text-align: left;
+				
+		}
+		.cementery{
+		font-family: "Tahoma";
+		font-size: 10px;
+		font-style: italic;
+		color: #696969;
+		text-align: left;
+		
+				
+		}
+		.url{
+		font-family: "Tahoma";
+		font-size: 12px;
+		font-weight: bold;
+		color: blue;
+		text-align: left;
+					
+		}
+		.tablee{
+			background-color: #B0C4DE;
+		}
+	</style>
+</head>
+<body>
+	<table border="0" align="center" width="800" class="tablee">
+	<div class="titulo">Zombies list</div>
+	<tr> <td>
+	<a href="{% url add_zombie %}">Add Zombie</a>
+	<a href="{% url add_tweet %}">Add Tweet</a>
+	<hr/>
+	</td>  
+	</tr>
+	<hr/>
+	{% for zombie in zombies %}
+	<div>
+		<tr>
+			<td class="zombie"><h3> {{ zombie.name }} <br/> 
+			<td class="url"> <a href="{% url edit_zombie zombie.id %}">Edit</a></td>
+			<td class="url"> <a href="{% url delete_zombie zombie.id %}">Delete</a></td>
+			</h3></td></tr>
+		
+		<tr><td class="cementery"><h3> Cementery --> {{ zombie.cementery }} </h3></td></tr>
+		<tr><td class="url"><h3>
+		<a href="{% url show_tweet zombie.id %}">View Tweets</a>
+ 		<hr/></h3></td></tr>
+
+	</div>
+	{% endfor %}
+	</table>
+</body>
+</html>
